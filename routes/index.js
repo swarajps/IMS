@@ -138,7 +138,12 @@ function checkAuth(req, res, next) {
   next();
  }
 
-
+ function checkAuth1(req, res, next) {
+  if (!req.session.log_id) {
+     return res.redirect('/');
+  }
+  next();
+ }
 
 router.get('/adminHome', checkAuth, function(req, res, next) {
   res.render('admin/home', { title: 'Register'});
