@@ -17,6 +17,17 @@ var url = 'mongodb://127.0.0.1:27017/sample';
 
 
 
+var dt=Date.now();
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads'); // Destination folder for uploaded files
+  },
+  filename: (req, file, cb) => {
+    cb(null, dt + '-' + file.originalname); // Unique file name
+  },
+});
+
+const upload = multer({ storage });
 
 
 // Define a route for uploading photos
