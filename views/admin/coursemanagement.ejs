@@ -1,0 +1,92 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get"><table width="200" border="1">
+  <tr>
+    <td>S.No</td>
+    <td>Course Name</td>
+    <td>Duration</td>
+    <td>Fees</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <% course.forEach(i=> { %>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;<%= i.course_name %></td>
+    <td>&nbsp;<%= i.duration %></td>
+    <td>&nbsp;<%= i.fees %></td>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+  </tr>
+  <% }); %>
+</table>
+</form>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Intern Management</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .img-column {
+        width: 100px;
+    }
+    .btn-column {
+        width: 100px;
+    }
+</style>
+</head>
+
+<body>
+<form action="" method="get"><table width="200" border="1">
+  <tr>
+    <td>S.No</td>
+    <td>Course Name</td>
+    <td>Duration</td>
+    <td>Fees</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <% var counter =1;
+  course.forEach(i=> { %>
+  <tr>
+    <td>&nbsp;<%= counter %></td>
+    <td>&nbsp;<%= i.course_name %></td>
+    <td>&nbsp;<%= i.duration %></td>
+    <td>&nbsp;<%= i.fees %></td>
+    <td class="btn-column"><a href="/editcourse/<%= i._id%>">Edit</a></td>
+    <td class="btn-column"><a href="/deletecourse/<%= i._id%>">Delete</a></td>
+  </tr>
+  <% counter++
+ }); %>
+</table>
+</form>
+</body>
+</html>

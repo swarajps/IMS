@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= tt %></title>
+  <link rel="stylesheet" type="text/css" href="/login/views/styles.css">
+</head>
+
+<body>
+  <form action="/login_post" method="post">
+    <table width="200" border="0">
+      <tr>
+        <td><input type="text" required placeholder="Username" name="textfield" id="textfield" /></td>
+      </tr>
+      <tr>
+        <td><input type="password" required placeholder="Password" name="textfield2" id="textfield2" /></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="button" id="button" value="Login" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title><%= tt %></title>
+ <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    /* Form styles */
+    form {
+      width: 250px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+ </style>
+</head>
+
+<body>
+ <form action="/login_post" method="post">
+    <table width="100%" border="0">
+      <tr>
+        <td><input type="text" required placeholder="Username" name="textfield" id="textfield" /></td>
+      </tr>
+      <tr>
+        <td><input type="password" required placeholder="Password" name="textfield2" id="textfield2" /></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="button" id="button" value="Login" /></td>
+      </tr>
+    </table>
+ </form>
+</body>
+
+</html>

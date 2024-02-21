@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <td>S.No</td>
+      <td>Employee Code</td>
+      <td>Name</td>
+      <td>DoB</td>
+      <td>Gender</td>
+      <td>State</td>
+      <td>City</td>
+      <td>PIN</td>
+      <td>Phone No</td>
+      <td>Email</td>
+      <td>Qualification</td>
+      <td>Join Date</td>
+      <td></td>
+    </tr>
+    <% mnn.forEach(i=> { %>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;<%= i.Employee_code %></td>
+      <td>&nbsp;<%= i.Name %></td>
+      <td>&nbsp;<%= i.Dob %></td>
+      <td>&nbsp;<%= i.Gender %></td>
+      <td>&nbsp;<%= i.State %></td>
+      <td>&nbsp;<%= i.City %></td>
+      <td>&nbsp;<%= i.PIN %></td>
+      <td>&nbsp;<%= i.Phone %></td>
+      <td>&nbsp;<%= i.Email %></td>
+      <td>&nbsp;<%= i.Qualifications %></td>
+      <td>&nbsp;<%= i.join_date %></td>
+
+      <td><a href="/editmentor/<%= i._id%>">Edit</a></td>
+      <td><a href="#">Delete</a></td>
+
+
+    </tr>
+    <% }); %>
+  </table>
+</form>
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .img-column {
+            width: 100px;
+        }
+
+        .btn-column {
+            width: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Employee Code</th>
+                <th>Name</th>
+                <th>DoB</th>
+                <th>Gender</th>
+                <th>State</th>
+                <th>City</th>
+                <th>PIN</th>
+                <th>Phone No</th>
+                <th>Email</th>
+                <th>Qualification</th>
+                <th>Join Date</th>
+            </tr>
+    <% <% var counter =1;
+    mnn.forEach(i=> { %>
+    <tr>
+      <td>&nbsp;<%= counter %></td>
+      <td>&nbsp;<%= i.Employee_code %></td>
+      <td class="img-column">&nbsp;<%= i.Name %><br><img src="<%= i.photo %>" height="100px"/></td>      <td>&nbsp;<%= i.Dob %></td>
+      <td>&nbsp;<%= i.Gender %></td>
+      <td>&nbsp;<%= i.State %></td>
+      <td>&nbsp;<%= i.City %></td>
+      <td>&nbsp;<%= i.PIN %></td>
+      <td>&nbsp;<%= i.Phone %></td>
+      <td>&nbsp;<%= i.Email %></td>
+      <td>&nbsp;<%= i.Qualifications %></td>
+      <td>&nbsp;<%= i.join_date %></td>
+
+      <td class="btn-column"><a href="/editmentor/<%= i._id%>">Edit</a></td>
+      <td class="btn-column"><a href="/deletementor/<%= i._id%>">Delete</a></td>
+
+
+    </tr>
+    <% counter++;
+  }); %>
+  </table>
+</form>
+</body>
+</html>

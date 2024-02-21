@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee List</title>
+</head>
+<body>
+
+
+
+
+  <a href="/">Logout</a>
+  <br>
+  <br>
+
+  <form action="/showalldatasearch" method="post">
+  <table border="1">
+    <tr>
+      <td>
+        <input type="text" name="search"/>
+      </td>
+      <td>
+        <input type="submit" value="Search"/>
+      </td>
+    </tr>
+
+  </table>
+  <br>
+  </form>
+
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th> Name</th>
+      <th>Dob</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+  
+    </tr>
+    <% employees.forEach(employee => { %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.gender %></td>
+        <td><%= employee.dob %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.phone %></td>
+        <td>
+          <a href="/editprofile?email=<%= employee.email %>">Edit</a>
+        </td>
+        <td>
+          <a href="/delete-by-email?email=<%= employee.email %>">Delete</a>
+        </td>
+  
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>
