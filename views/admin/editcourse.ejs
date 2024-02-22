@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+ body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+ }
+ .container {
+    border: 1px solid #ccc;
+    padding: 20px;
+ }
+ table {
+    width: 100%;
+    border-collapse: collapse;
+ }
+ td {
+    border: 1px solid #ccc;
+    padding: 8px;
+ }
+ input[type="text"], input[type="date"] {
+    width: calc(100% - 16px);
+    padding: 6px;
+    margin: 4px 0;
+    box-sizing: border-box;
+ }
+ input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 16px);
+ }
+ input[type="submit"]:hover {
+    background-color: #45a049;
+ }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <form action="/editcor" method="post">
+    <input type="hidden" name="id" value="<%=data._id%>">
+
+    <table>
+        <tr>
+            <th colspan="2">Edit Course</th>
+        </tr>
+      <tr>
+        <td><input type="text" placeholder="Course Name" value="<%= data.course_name%>" name="textfield" id="textfield" /></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="Duration" value="<%= data.duration%>" name="textfield2" id="textfield2" /></td>
+      </tr>
+      <tr>
+        <td><input type="text" placeholder="Fees" value="<%= data.fees%>" name="textfield3" id="textfield3" /></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="button" id="button" value="Add" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

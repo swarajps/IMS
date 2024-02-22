@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/editment" method="post" enctype="multipart/form-data"> <table width="200" border="1">
+  <tr><input type="hidden" name="id" value="<%=data._id%>">
+  <td>Photo<img src="<%= data.photo%>" height="100px" />
+    <input type="file" name="fileField" id="fileField" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Employee Code" value="<%= data.Employee_code%>" name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Name" value="<%= data.Name%>" name="textfield2" id="textfield2" /></td>
+  </tr><tr>
+    <td><input type="date" placeholder="DoB" value="<%= data.Dob%>" name="textfield3" id="textfield3" /></td>
+  </tr><tr>
+    <td><p>
+      <label>
+        <input type="radio" placeholder="Gender" <% if(data.Gender =='Male') {%> checked <% };%>  name="textfield4" id="textfield4" value="Male"/>Male<br>
+        <input type="radio" placeholder="Gender" <% if(data.Gender =='Female') {%> checked <% };%>name="textfield4" id="textfield4" value="Female" />Female<br>
+      </label>
+    </p></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="State" value="<%= data.State%>" name="textfield10" id="textfield10" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="City" value="<%= data.City%>" name="textfield11" id="textfield11" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Pin" value="<%= data.PIN%>" name="textfield6" id="textfield6" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Phone No" value="<%= data.Phone%>" name="textfield5" id="textfield5" /></td>
+  </tr>
+  <tr>
+    <td><input type="date" placeholder="Join Date" value="<%= data.join_date%>" name="textfield9" id="textfield9" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Email" value="<%= data.Email%>" name="textfield7" id="textfield7" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Qualification" value="<%= data.Qualifications%>" name="textfield8" id="textfield8" /></td>
+  </tr><tr>
+    <td><input type="submit" name="button" id="button" value="Edit" /></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

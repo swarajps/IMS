@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/addment" method="post" enctype="multipart/form-data"> <table width="200" border="1">
+  <tr>
+  <td>Photo
+    <input type="file" name="fileField" id="fileField" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Employee Code" name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Name" name="textfield2" id="textfield2" /></td>
+  </tr><tr>
+    <td><input type="date" placeholder="DoB" name="textfield3" id="textfield3" /></td>
+  </tr><tr>
+    <td><p>
+      <label>
+        <input type="radio" placeholder="Gender" name="textfield4" id="textfield4" value="Male"/>Male<br>
+        <input type="radio" placeholder="Gender" name="textfield4" id="textfield4" value="Female" />Female<br>
+      </label>
+    </p></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="State" name="textfield10" id="textfield10" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="City" name="textfield11" id="textfield11" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Pin" name="textfield6" id="textfield6" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Phone No" name="textfield5" id="textfield5" /></td>
+  </tr>
+  <tr>
+    <td><input type="date" placeholder="Join Date" name="textfield9" id="textfield9" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Email" name="textfield7" id="textfield7" /></td>
+  </tr><tr>
+    <td><input type="text" placeholder="Qualification" name="textfield8" id="textfield8" /></td>
+  </tr><tr>
+    <td><input type="submit" name="button" id="button" value="Add" /></td>
+  </tr>
+</table>
+</form>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+ body {
+    font-family: Arial, sans-serif;
+ }
+ table {
+    width: 300px;
+    margin: 0 auto;
+    border-collapse: collapse;
+ }
+ table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+ }
+ input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+ }
+ input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+ }
+ input[type="submit"]:hover {
+    background-color: #45a049;
+ }
+</style>
+</head>
+
+<body>
+<form action="/addment" method="post" enctype="multipart/form-data">
+ <table>
+    <tr>
+      <td>Photo
+        <input type="file" name="fileField" id="fileField" /></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="Employee Code" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="Name" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td><label for="textfield3">DOB</label> <input type="date" placeholder="DoB" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td><p>
+        <label>
+          <input type="radio" placeholder="Gender" name="textfield4" id="textfield4" value="Male"/>Male<br>
+          <input type="radio" placeholder="Gender" name="textfield4" id="textfield4" value="Female" />Female<br>
+        </label>
+      </p></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="State" name="textfield10" id="textfield10" /></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="City" name="textfield11" id="textfield11" /></td>
+    </tr>
+    <tr>
+      <td><input type="text" placeholder="Pin" name="textfield6" id="textfield6" /></td>
+    </tr><tr>
+      <td><input type="text" placeholder="Phone No" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td><label for="textfield9">Join Date</label><input type="date" placeholder="Join Date" name="textfield9" id="textfield9" /></td>
+    </tr><tr>
+      <td><input type="text" placeholder="Email" name="textfield7" id="textfield7" /></td>
+    </tr><tr>
+      <td><input type="text" placeholder="Qualification" name="textfield8" id="textfield8" /></td>
+    </tr>
+    <tr>
+      <td><input type="submit" name="button" id="button" value="Add" /></td>
+    </tr>
+ </table>
+</form>
+</body>
+</html>

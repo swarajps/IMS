@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .img-column {
+            width: 100px;
+        }
+
+        .btn-column {
+            width: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Employee Code</th>
+                <th>Name</th>
+                <th>DoB</th>
+                <th>Gender</th>
+                <th>State</th>
+                <th>City</th>
+                <th>PIN</th>
+                <th>Phone No</th>
+                <th>Email</th>
+                <th>Qualification</th>
+                <th>Join Date</th>
+            </tr>
+    <% var counter =1;
+    mnn.forEach(i=> { %>
+    <tr>
+      <td>&nbsp;<%= counter %></td>
+      <td>&nbsp;<%= i.Employee_code %></td>
+      <td class="img-column">&nbsp;<%= i.Name %><br><img src="<%= i.photo %>" height="100px"/></td>      <td>&nbsp;<%= i.Dob %></td>
+      <td>&nbsp;<%= i.Gender %></td>
+      <td>&nbsp;<%= i.State %></td>
+      <td>&nbsp;<%= i.City %></td>
+      <td>&nbsp;<%= i.PIN %></td>
+      <td>&nbsp;<%= i.Phone %></td>
+      <td>&nbsp;<%= i.Email %></td>
+      <td>&nbsp;<%= i.Qualifications %></td>
+      <td>&nbsp;<%= i.join_date %></td>
+
+      <td class="btn-column"><a href="/editmentor/<%= i._id%>">Edit</a></td>
+      <td class="btn-column"><a href="/deletementor/<%= i._id%>">Delete</a></td>
+
+
+    </tr>
+    <% counter++;
+  }); %>
+  </table>
+</form>
+</body>
+</html>
