@@ -15,8 +15,6 @@ const AssignWork = require('../models/assignwork');
 const Work = require('../models/work');
 var url = 'mongodb://127.0.0.1:27017/sample';
 const checkAuth  = require('../auth/auth');
-const checkAuth1  = require('../auth/auth');
-const checkAuth2  = require('../auth/auth');
 
 
 
@@ -42,7 +40,7 @@ const stg = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-const work = multer({ stg });
+const work = multer({ stg:stg });
 
 
 // Define a route for uploading photos
@@ -542,15 +540,15 @@ router.get('/viewallocatedmentors',checkAuth, async function(req, res, next) {
 
 
 //Intern
-router.get('/Internhome',checkAuth1, function(req, res, next) {
+router.get('/Internhome',checkAuth, function(req, res, next) {
   res.render('intern/home', { title: 'Register'});
 });
 
-router.get('/assignmentsubmission',checkAuth1, function(req, res, next) {
+router.get('/assignmentsubmission',checkAuth, function(req, res, next) {
   res.render('intern/assignmentsubmission', { title: 'Register'});
 });
 
-router.post('/assign_sub',checkAuth1, async function(request, response, next){
+router.post('/assign_sub',checkAuth, async function(request, response, next){
   var assignment_title = request.body.textfield2;
   var  assignment_file = request.body.filefield;
   console.log(assignment_title);
@@ -558,7 +556,7 @@ router.post('/assign_sub',checkAuth1, async function(request, response, next){
 });
 
 
-router.get('/internfeedback',checkAuth1, function(req, res, next) {
+router.get('/internfeedback',checkAuth, function(req, res, next) {
   res.render('intern/internfeedback', { title: 'Register'});
 });
 router.post('/intfeed', async function(request, response, next){
@@ -570,7 +568,7 @@ router.post('/intfeed', async function(request, response, next){
 });
 
 
-router.get('/internprofileview',checkAuth1,async function(req, res, next) {
+router.get('/internprofileview',checkAuth,async function(req, res, next) {
     const docs = await Intern.find({ Inter_id :req.session.log_id, });
     res.render('intern/internprofileview', { title: 'Intern View', data: docs[0]});
   
@@ -583,7 +581,7 @@ router.get('/internprofileview',checkAuth1,async function(req, res, next) {
   res.render('intern/changepassword', { title: 'Register'});
 });
 
-router.post('/changepassi',checkAuth1, async function(request, response, next){
+router.post('/changepassi',checkAuth, async function(request, response, next){
   const chngpass = await Login.find({_id:request.session.log_id,});
   var current_pass = request.body.textfield;
   var  new_pass = request.body.textfield2;
@@ -617,23 +615,23 @@ router.post('/changepassi',checkAuth1, async function(request, response, next){
 //   response.redirect("/internprofileview");
 // });
 
-router.get('/Internviewassignments', checkAuth1, function(req, res, next) {
+router.get('/Internviewassignments', checkAuth, function(req, res, next) {
   res.render('intern/Internviewassignments', { title: 'Register'});
 });
 
-router.post('/intviewassign',checkAuth1, async function(request, response, next){
+router.post('/intviewassign',checkAuth, async function(request, response, next){
   var Assignment_title = request.body.textfield;
   var Assigned_Date = request.body.textfield;
   var Sumbission_Date = request.body.textfield;
 
   response.redirect("/internviewassignments");
 });
-router.get('/queriesubmission', checkAuth1, function(req, res, next) {
+router.get('/queriesubmission', checkAuth, function(req, res, next) {
   res.render('intern/queriesubmission', { title: 'Register'});
 });
 
 
-router.post('/q_sub',checkAuth1, async function(request, response, next){
+router.post('/q_sub',checkAuth, async function(request, response, next){
   var queries = request.body.textfield;
   console.log(queries);
 
@@ -652,22 +650,22 @@ router.post('/q_sub',checkAuth1, async function(request, response, next){
 });
 
 
-router.get('/viewassignedcourses', checkAuth1, function(req, res, next) {
+router.get('/viewassignedcourses', checkAuth, function(req, res, next) {
   res.render('intern/viewassignedcourses', { title: 'Register'});
 });
 
-router.get('/viewassignedmentor', checkAuth1, function(req, res, next) {
+router.get('/viewassignedmentor', checkAuth, function(req, res, next) {
   res.render('intern/viewassignedmentor', { title: 'Register'});
 });
 
 
 //mentor
-router.get('/Mentorhome',checkAuth2, function(req, res, next) {
+router.get('/Mentorhome',checkAuth, function(req, res, next) {
   res.render('mentor/home', { title: 'Register'});
 });
 
 
-router.get('/Assignwork',checkAuth2, async function(req, res, next) {
+router.get('/Assignwork',checkAuth, async function(req, res, next) {
   const docs = await Mentor.find({ Mentor_id :req.session.log_id, });
   const allocint = await Allocation.find({mentor_id: docs[0]["_id"]});
 
@@ -686,7 +684,7 @@ router.get('/Assignwork',checkAuth2, async function(req, res, next) {
   res.render('mentor/assignwork', { title: 'Register', inn: alloc});
 });
 
-router.post('/Assignwk_',work.single('fileField'),checkAuth2, async function(request, response, next){
+router.post('/Assignwk_',work.single('fileField'),checkAuth, async function(request, response, next){
   var work_title = request.body.textfield;
   var work1 = request.body.textarea;
   var attach_file= request.file.fileField;
@@ -751,10 +749,10 @@ router.post('/Assignwk_',work.single('fileField'),checkAuth2, async function(req
 
 
 
-router.get('/evaluationandfeedback',checkAuth2, function(req, res, next) {
+router.get('/evaluationandfeedback',checkAuth, function(req, res, next) {
   res.render('mentor/evalandfeedback', { title: 'Register'});
 });
-router.post('/evalandfback',checkAuth2, async function(request, response, next){
+router.post('/evalandfback',checkAuth, async function(request, response, next){
   var score = request.body.textfield;
   var feedback = request.body.textarea;
   console.log(score);
@@ -774,13 +772,13 @@ router.post('/evalandfback',checkAuth2, async function(request, response, next){
 });
 
 
-router.get('/changepassword',checkAuth2,async function(req, res, next) {
+router.get('/changepassword',checkAuth,async function(req, res, next) {
   
 
   res.render('mentor/changepassword', { title: 'Register'});
 });
 
-router.post('/changepassm',checkAuth2, async function(request, response, next){
+router.post('/changepassm',checkAuth, async function(request, response, next){
   const chngpass = await Login.find({_id:request.session.log_id,});
   var current_pass = request.body.textfield;
   var  new_pass = request.body.textfield2;
@@ -805,7 +803,7 @@ router.post('/changepassm',checkAuth2, async function(request, response, next){
 });
 
 
-router.get('/internmonitoring',checkAuth2, function(req, res, next) {
+router.get('/internmonitoring',checkAuth, function(req, res, next) {
   res.render('mentor/internmonitoring', { title: 'Register'});
 });
 router.post('/intermon', async function(request, response, next){
@@ -820,7 +818,7 @@ router.post('/intermon', async function(request, response, next){
 });
 
 
-router.get('/MentorProfile',checkAuth2,async function(req, res, next) {
+router.get('/MentorProfile',checkAuth,async function(req, res, next) {
 
   const docs = await Mentor.find({ Mentor_id :req.session.log_id, });
 
@@ -831,7 +829,7 @@ router.get('/MentorProfile',checkAuth2,async function(req, res, next) {
 
 
 
-router.post('/mentorpro', checkAuth2,async function(request, response, next){
+router.post('/mentorpro', checkAuth,async function(request, response, next){
   var search = request.body.textfield;
   var name = request.body.textfield;
   var emp_id = request.body.textarea;  
@@ -846,7 +844,7 @@ router.post('/mentorpro', checkAuth2,async function(request, response, next){
 });
 
 
-router.get('/viewcoursealloc', checkAuth2, function(req, res, next) {
+router.get('/viewcoursealloc', checkAuth, function(req, res, next) {
   res.render('mentor/viewcoursealloc', { title: 'Register'});
 });
 router.post('/viewcorsalloc', async function(request, response, next){
@@ -859,8 +857,73 @@ router.post('/viewcorsalloc', async function(request, response, next){
 
 
 
-router.get('/Mentorhome', checkAuth2, function(req, res, next) {
+router.get('/Mentorhome', checkAuth, function(req, res, next) {
   res.render('mentor/home', { title: 'Register'});
+});
+
+
+
+// tobesend
+router.get('/mentor_viewassignedwork', checkAuth, async function(req, res, next) {
+  var Data= await Work.find({ mentor_id :req.session.log_id, });
+  
+    
+  res.render('mentor/viewassignedwork', { title: 'Register',mnn:Data});
+
+});
+router.post('/mentor_viewassignedwork_post', async function(request, response, next){
+  
+  var mentor_assigned = request.body.textarea; 
+
+  response.redirect("/viewassignedwork");
+});
+
+
+router.get('/viewassignedworkintern/:workid', checkAuth, async function(req, res, next) {
+  const intern = await AssignWork.find({ work_id:req.params.workid});
+  var alloc=[];
+  for (const i of intern) {
+    try {
+
+      const intern = await Intern.find({ _id: i.intern_id });
+      alloc.push({'id':i._id,'Intern_Name':intern[0].Name,'Photo': intern[0].Photo, 'Assigned_Date': i.assign_date});
+    } catch (error) {
+      console.error('Error fetching mentor:', error);
+    }
+  }
+  console.log(intern);
+  res.render('mentor/viewassignedintern', { title: 'Register', mnn: alloc});
+});
+router.post('/viewassignedintern', async function(request, response, next){
+  
+  var mentor_assigned = request.body.textarea; 
+
+  response.redirect("/viewassignedintern");
+});
+
+
+
+router.get('/viewinternallocatedcourses', checkAuth, async function(req, res, next) {
+  const intern = await CourseAlloc.find({ });
+  var alloc=[];
+  for (const i of intern) {
+    try {
+
+      const intern = await Intern.find({ _id: i.intern_id });
+      const course = await Course.find({ _id: i.course_id });
+      alloc.push({'id':i._id,'Intern_Name':intern[0].Name,'Photo': intern[0].Photo, 'Course_Name': course[0].course_name});
+    } catch (error) {
+      console.error('Error fetching mentor:', error);
+    }
+  }
+  console.log(intern);
+  res.render('mentor/viewinternallocatedcourses', { title: 'Register', mnn: alloc});
+});
+router.post('/viewinternallocatedcourses', async function(request, response, next){
+  
+  var mentor_assigned = request.body.textarea; 
+
+  response.redirect("/viewinternallocatedcourses");
 });
 
 
