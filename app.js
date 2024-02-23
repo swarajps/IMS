@@ -18,7 +18,6 @@ app.use(session({
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 const port = 7000;
 // app.listen(port, () => console.log(`Listening on port ${port}`));
@@ -46,7 +45,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 
 app.use('/uploads', express.static('uploads'));
