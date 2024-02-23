@@ -1,13 +1,23 @@
 var express = require('express');
 var multer = require('multer');
 var database = require('../database');
-const db = require('../config/db');
+// const db = require('../config/db');
 const Login = require('../models/login');
 const Intern = require('../models/intern');
 const QueryandReply = require('../models/queryandreply');
-var url = 'mongodb://127.0.0.1:27017/sample';
 const checkAuth = require('../auth/auth');
 
+
+const mongoose = require('mongoose');
+
+const MONGO_URI = 'mongodb://0.0.0.0:27017/test';
+
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(error => console.error('Error connecting to MongoDB:', error));
 
 var router = express.Router();
 var usersRouter = require('./logini');
