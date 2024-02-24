@@ -15,14 +15,25 @@
     <td>Mentor Assigned</td>
     <td>Progress</td>
     <td>Duration</td>
+    <td>Fees</td>
+
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+  <% var counter =1;
+  mnn.forEach(i=> { %>
+    <tr>
+    <td>&nbsp;<%= counter %></td>
+    <td>&nbsp;<%= i.Course_Name %></td>
+    <td>&nbsp;<%= i.Mentor_Assigned%></td>
     <td><a href="#">Work Report</a></td>
-    <td>&nbsp;</td>
+    <td>&nbsp;<%= i.Duration %></td>
+    <td>&nbsp;<%= i.Fees %></td>
+    
+
+   
+
   </tr>
+  <% counter++;
+}); %>
 </table>
 </form>
 </body>

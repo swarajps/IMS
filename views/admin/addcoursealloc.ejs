@@ -39,3 +39,78 @@
 </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+<!-- // import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+
+// const AddCourseAllocation = () => {
+//   const [courses, setCourses] = useState([]);
+//   const [interns, setInterns] = useState([]);
+
+//   useEffect(() => {
+//     axios.get('/api/courses')
+//       .then(res => {
+//         setCourses(res.data);
+//       });
+
+//     axios.get('/api/interns')
+//       .then(res => {
+//         setInterns(res.data);
+//       });
+//   }, []);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const courseId = e.target.select.value;
+//     const internId = e.target.select2.value;
+
+//     axios.post('/api/addcourseallocation', { courseId, internId })
+//       .then(res => {
+//         console.log(res.data);
+//       });
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <table>
+//         <tr>
+//           <td>Course</td>
+//           <td>
+//             <select name="select" id="select">
+//               <option>Select</option>
+//               {courses.map(course => (
+//                 <option key={course._id} value={course._id}>{course.course_name}</option>
+//               ))}
+//             </select>
+//           </td>
+//         </tr>
+//         <tr>
+//           <td>Intern</td>
+//           <td>
+//             <select name="select2" id="select">
+//               <option>Select</option>
+//               {interns.map(intern => (
+//                 <option key={intern._id} value={intern._id}>{intern.Name}</option>
+//               ))}
+//             </select>
+//           </td>
+//         </tr>
+//         <tr>
+//           <td colSpan="2">
+//             <button type="submit">Add</button>
+//           </td>
+//         </tr>
+//       </table>
+//     </form>
+//   );
+// };
+
+// export default AddCourseAllocation; -->

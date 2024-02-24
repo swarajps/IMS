@@ -5,6 +5,7 @@ const QueryandreplySchema = new mongoose.Schema({
   allocation_id: String,
   query: String,
   reply: String,
+  date:  { type: Date, default: Date.now },
 
 });
 

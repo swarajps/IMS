@@ -10,17 +10,26 @@
 <table width="354" border="1">
   <tr>
     <td width="29">S.No</td>
-    <td width="118">Assignment Title </td>
     <td width="93">Assigned Date</td>
+    <td width="118">Assignment Title </td>
+    <td width="93">Description</td>
+
     <td width="86">Submission Date </td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><a href="#">View</a></td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+  <% var counter =1;
+  mnn.forEach(i=> { %>
+    <tr>
+    <td>&nbsp;<%= counter %></td>
+    <td>&nbsp;<%= i.assign_date %></td>
+    <td>&nbsp;<%= i.workk_name %></td>
+    <td>&nbsp;<%= i.work %></td>
+    <td>&nbsp;<%= i.submission_date%><td>
+    
+    
   </tr>
-</table>
+  <% counter++;
+}); %>
+  </table>
 </form>
 </body>
 </html>
