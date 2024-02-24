@@ -92,10 +92,9 @@ router.post('/Assignwk_',upload.single('fileField'),checkAuth, async function(re
 } else if (typeof(intern_data) === "string") {
   // intern_data = [intern_data];
   try {
-    console.log(i);
     var assgnwk = {
       work_id: savedW._id ,
-      intern_id: i,
+      intern_id: intern_data,
       assign_date: Assign_date,
     }
     const AW = new AssignWork(assgnwk);
@@ -312,7 +311,7 @@ router.post('/mentor_viewassignedwork_post', async function(request, response, n
 });
 
 
-router.get('/viewassignedworkintern/:workid', checkAuth, async function(req, res, next) {
+router.get('/viewassignedworkintern/:workid', async function(req, res, next) {
   const intern = await AssignWork.find({ work_id:req.params.workid});
   var alloc=[];
   for (const i of intern) {
